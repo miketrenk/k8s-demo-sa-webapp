@@ -12,5 +12,8 @@ branches:
 before_install:
   - chmod +x mvnw
 
-install: true
+install:
+  - mvn -N io.takari:maven:wrapper
+  - ./mvnw install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+  
 script: ./mvnw clean install
