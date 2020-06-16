@@ -1,19 +1,13 @@
 language: java
+jdk: openjdk8
 
 cache:
   directories:
   - $HOME/.m2
 
-sudo: true
-
-services:
-  - docker
-
 branches:
   only:
   - master
 
-after_script:
-  - docker build --tag $DOCKER_USERNAME/sentiment-analysis-web-app .
-  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-  - docker push $DOCKER_USERNAME/sentiment-analysis-web-app
+install: true
+script: ./mvnw clean install
