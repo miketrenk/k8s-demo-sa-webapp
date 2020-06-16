@@ -26,4 +26,4 @@ script: ./mvnw clean install
 after_script:
   - docker build --tag $DOCKER_USERNAME/sentiment-analysis-web-app .
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-  - docker push $DOCKER_USERNAME/sentiment-analysis-frontend
+  - docker push $DOCKER_USERNAME/sentiment-analysis-web-app
